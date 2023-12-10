@@ -42,6 +42,8 @@
 		866F15E02B24A17B004090AA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F15DF2B24A17B004090AA /* Accelerate.framework */; };
 		866F15E62B25E95A004090AA /* dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866F15E42B25E95A004090AA /* dot.cpp */; };
 		866F15E72B25E95A004090AA /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866F15E52B25E95A004090AA /* grid.cpp */; };
+		866F15EB2B25F35F004090AA /* Rocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866F15E92B25F35F004090AA /* Rocket.cpp */; };
+		866F15EE2B25F376004090AA /* Environment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 866F15EC2B25F376004090AA /* Environment.cpp */; };
 		86EEFDA62B23222900E452AE /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86EEFC5F2B2321C700E452AE /* imgui_widgets.cpp */; };
 		86EEFDA92B23222900E452AE /* imgui_impl_metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 86EEFC622B2321C700E452AE /* imgui_impl_metal.mm */; };
 		86EEFDAA2B23222900E452AE /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86EEFC632B2321C700E452AE /* imgui.cpp */; };
@@ -249,6 +251,10 @@
 		866F15E32B25E95A004090AA /* dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dot.h; sourceTree = "<group>"; };
 		866F15E42B25E95A004090AA /* dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dot.cpp; sourceTree = "<group>"; };
 		866F15E52B25E95A004090AA /* grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid.cpp; sourceTree = "<group>"; };
+		866F15E92B25F35F004090AA /* Rocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rocket.cpp; sourceTree = "<group>"; };
+		866F15EA2B25F35F004090AA /* Rocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rocket.h; sourceTree = "<group>"; };
+		866F15EC2B25F376004090AA /* Environment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Environment.cpp; sourceTree = "<group>"; };
+		866F15ED2B25F376004090AA /* Environment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
 		86EEFC5C2B2321C700E452AE /* imgui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
 		86EEFC5D2B2321C700E452AE /* imstb_textedit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imstb_textedit.h; sourceTree = "<group>"; };
 		86EEFC5E2B2321C700E452AE /* imconfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
@@ -595,9 +601,21 @@
 			path = DotPathFinder;
 			sourceTree = "<group>";
 		};
+		866F15E82B25F33D004090AA /* Rockets */ = {
+			isa = PBXGroup;
+			children = (
+				866F15E92B25F35F004090AA /* Rocket.cpp */,
+				866F15EA2B25F35F004090AA /* Rocket.h */,
+				866F15EC2B25F376004090AA /* Environment.cpp */,
+				866F15ED2B25F376004090AA /* Environment.h */,
+			);
+			path = Rockets;
+			sourceTree = "<group>";
+		};
 		86EEFC5A2B2321C700E452AE /* source */ = {
 			isa = PBXGroup;
 			children = (
+				866F15E82B25F33D004090AA /* Rockets */,
 				866F15E12B25E911004090AA /* DotPathFinder */,
 				86FAEA122B23356200BFE9AE /* nn */,
 				86FAEA0F2B23356200BFE9AE /* ui */,
@@ -747,6 +765,7 @@
 				86EEFDAD2B23222900E452AE /* imgui_impl_osx.mm in Sources */,
 				866F15862B249DC8004090AA /* primitives.cpp in Sources */,
 				866F153C2B249DC8004090AA /* device.cpp in Sources */,
+				866F15EB2B25F35F004090AA /* Rocket.cpp in Sources */,
 				866F15692B249DC8004090AA /* allocator.cpp in Sources */,
 				866F15362B249DC8004090AA /* ops.cpp in Sources */,
 				866F15642B249DC8004090AA /* matmul.cpp in Sources */,
@@ -755,6 +774,7 @@
 				866F15662B249DC8004090AA /* fft.cpp in Sources */,
 				86FAEA172B23357900BFE9AE /* scene.cpp in Sources */,
 				866F156E2B249DC8004090AA /* metal.cpp in Sources */,
+				866F15EE2B25F376004090AA /* Environment.cpp in Sources */,
 				866F15382B249DC8004090AA /* transforms.cpp in Sources */,
 				866F15852B249DC8004090AA /* allocator.cpp in Sources */,
 			);

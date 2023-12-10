@@ -3,6 +3,7 @@
 #include <iostream>
 #include <random>
 #include "../DotPathFinder/grid.h"
+#include "../Rockets/Environment.h"
 class Scene
 {
 public:
@@ -11,5 +12,5 @@ public:
     
     void render();
 private:
-    Grid grid;
+    Environment environment;
 };
