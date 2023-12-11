@@ -8,10 +8,12 @@ public:
     Rocket();
     ~Rocket();
     
-    void applyPhysics(float t, float rt);
+    void computeControls(ImVec2 mouse_pos);
+    void setControls(float thrust, float rot_thrust);
+    void applyPhysics();
     void draw();
 private:
-    array position = array({200.0f, 0.0f}, {1, 2});
+    array position = array({0.0f, 0.0f}, {1, 2});
     array velocity = array({0.0f, 0.0f}, {1, 2});
     array acceleration = array({0.0f, 0.0f}, {1, 2});
     
@@ -27,6 +29,10 @@ private:
     const array main_thrust = array({0.0f, MAIN_THRUST_MAG}, {1, 2});
     float main_thrust_amount { 0.0f };
     
-    const float ROT_THRUST_MAG { 3.0f };
+    const float ROT_THRUST_MAG { 6.0f };
     float rot_thrust_amount { 0.0f };
+    
+    Layer l1;
+    Layer l2;
+    Layer l3;
 };
