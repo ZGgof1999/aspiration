@@ -13,4 +13,5 @@ public:
     void render();
 private:
     Grid grid;
+    Environment environment;
 };

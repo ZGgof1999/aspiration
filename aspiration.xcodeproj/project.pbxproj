@@ -52,6 +52,7 @@
 		86B160FE2B31960E007AF975 /* load.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86B1609B2B31960E007AF975 /* load.cpp */; };
 		86B160FF2B31960E007AF975 /* graph_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86B1609E2B31960E007AF975 /* graph_utils.cpp */; };
 		86B161002B31960E007AF975 /* dtype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86B160A02B31960E007AF975 /* dtype.cpp */; };
+		86B161042B31BAF4007AF975 /* Agent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86B161032B31BAF4007AF975 /* Agent.cpp */; };
 		86EEFDAF2B23223C00E452AE /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 86EEFC6C2B2321C700E452AE /* main.mm */; };
 		86EEFF8E2B2323F300E452AE /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EEFDB72B2323D200E452AE /* MainMenu.storyboard */; };
 		86FAEA162B23356200BFE9AE /* layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86FAEA142B23356200BFE9AE /* layer.cpp */; };
@@ -190,6 +191,8 @@
 		86B160A02B31960E007AF975 /* dtype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dtype.cpp; sourceTree = "<group>"; };
 		86B160A12B31960E007AF975 /* graph_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graph_utils.h; sourceTree = "<group>"; };
 		86B160A22B31960E007AF975 /* random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
+		86B161022B31BAF4007AF975 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
+		86B161032B31BAF4007AF975 /* Agent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Agent.cpp; sourceTree = "<group>"; };
 		86EEFC6C2B2321C700E452AE /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		86EEFDB72B2323D200E452AE /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		86EEFDB82B2323D200E452AE /* Info-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
@@ -465,9 +468,19 @@
 			path = 3rdparty;
 			sourceTree = "<group>";
 		};
+		86B161012B31BAF4007AF975 /* Agent */ = {
+			isa = PBXGroup;
+			children = (
+				86B161022B31BAF4007AF975 /* Agent.h */,
+				86B161032B31BAF4007AF975 /* Agent.cpp */,
+			);
+			path = Agent;
+			sourceTree = "<group>";
+		};
 		86EEFC5A2B2321C700E452AE /* source */ = {
 			isa = PBXGroup;
 			children = (
+				86B161012B31BAF4007AF975 /* Agent */,
 				866F15E82B25F33D004090AA /* Rockets */,
 				866F15E12B25E911004090AA /* DotPathFinder */,
 				86FAEA122B23356200BFE9AE /* nn */,
@@ -570,6 +583,7 @@
 				86FAEA162B23356200BFE9AE /* layer.cpp in Sources */,
 				86B160B12B31960E007AF975 /* fft.cpp in Sources */,
 				86B160AB2B31960E007AF975 /* imgui_draw.cpp in Sources */,
+				86B161042B31BAF4007AF975 /* Agent.cpp in Sources */,
 				86B160DA2B31960E007AF975 /* matmul.cpp in Sources */,
 				86B160A72B31960E007AF975 /* imgui_impl_osx.mm in Sources */,
 				866F15E72B25E95A004090AA /* grid.cpp in Sources */,

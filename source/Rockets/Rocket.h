@@ -1,5 +1,5 @@
 #pragma once
-#include "../nn/layer.h"
+#include "../Agent/Agent.h"
 #include "imgui/imgui.h"
 
 class Rocket
@@ -42,18 +42,12 @@ private:
     Model model;
 };
 
-class Rocket_StatePredictorActionGenerator : public Rocket
+class Rocket_StatePredictorActionGenerator : public Rocket, public Agent
 {
 public:
     Rocket_StatePredictorActionGenerator();
+    void humanControlTraining(ImVec2 mouse_pos);
     void computeControls(ImVec2 mouse_pos) override;
 private:
     float getStateScore(array state);
-    Model state_predictor;
-    Model action_generator;
-    
-    array prev_state;
-    array prev_action;
-    
-    std::vector<array> actions;
 };

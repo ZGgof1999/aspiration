@@ -2,6 +2,7 @@
 #include <atomic>
 #include <iostream>
 #include "../nn/layer.h"
+#include "../Agent/Agent.h"
 
 using namespace mlx::core;
 
@@ -20,17 +21,11 @@ struct TrainingData
     std::vector<float> y;
 };
 
-struct Target
-{
-    int x;
-    int y;
-};
-
-class Dot
+class BatchDot
 {
 public:
-    Dot();
-    ~Dot();
+    BatchDot();
+    ~BatchDot();
     
     void train(int num_batches, float learning_rate);
     void act(float target_x, float target_y);
@@ -39,7 +34,6 @@ public:
     float y { 0 };
 private:
     Model model;
-    
     std::vector<TrainingData> trainingData;
 };
 
@@ -57,9 +51,7 @@ private:
     float getStateScore(array state);
     Model state_predictor;
     Model action_generator;
-    
     array prev_state;
     array prev_action;
-    
     std::vector<array> actions;
 };

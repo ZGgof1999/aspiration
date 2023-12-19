@@ -1,6 +1,6 @@
 #include "dot.h"
 
-Dot::Dot()
+BatchDot::BatchDot()
 {
     model.addLayer(Layer(2, 8));
     model.addLayer(Layer(8, 5));
@@ -18,9 +18,9 @@ Dot::Dot()
                 }
             });
 }
-Dot::~Dot() { }
+BatchDot::~BatchDot() { }
 
-void Dot::train(int num_batches, float learning_rate)
+void BatchDot::train(int num_batches, float learning_rate)
 {
     for (int batch = 0; batch < num_batches; batch++)
     {
@@ -45,7 +45,7 @@ void Dot::train(int num_batches, float learning_rate)
         std::cout << "Batch: " << batch + 1 << " / " << num_batches << ", Loss: " << loss / trainingData.size() << "\n";
     }
 }
-void Dot::act(float target_x, float target_y)
+void BatchDot::act(float target_x, float target_y)
 {
     // AI Model
     array input({(target_x - x) / 8.0f, (target_y - y) / 8.0f}, {1, 2});
