@@ -1,6 +1,6 @@
 #pragma once
 #include "../nn/layer.h"
-#include "../../imgui/imgui.h"
+#include "imgui/imgui.h"
 
 class Rocket
 {

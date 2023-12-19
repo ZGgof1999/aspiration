@@ -2,7 +2,7 @@
 #include <atomic>
 #include <iostream>
 #include <random>
-#include "../imgui/imgui.h"
+#include "imgui/imgui.h"
 #include "dot.h"
 
 class Grid

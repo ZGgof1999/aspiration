@@ -1,5 +1,5 @@
 #pragma once
-#include "imgui.h"
+#include "imgui/imgui.h"
 #include "mlx/mlx.h"
 #include <atomic>
 #include <iostream>
