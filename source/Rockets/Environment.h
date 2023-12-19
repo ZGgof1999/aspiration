@@ -10,5 +10,5 @@ public:
     
     void render();
 private:
-    std::unique_ptr<Rocket> rocket;
+    std::unique_ptr<Rocket_StatePredictorActionGenerator> rocket;
 };

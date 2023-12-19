@@ -8,11 +8,11 @@ public:
     Rocket();
     ~Rocket();
     
-    void computeControls(ImVec2 mouse_pos);
+    virtual void computeControls(ImVec2 mouse_pos);
     void setControls(float thrust, float rot_thrust);
     void applyPhysics();
     void draw();
-private:
+protected:
     array position = array({0.0f, 0.0f}, {1, 2});
     array velocity = array({0.0f, 0.0f}, {1, 2});
     array acceleration = array({0.0f, 0.0f}, {1, 2});
@@ -31,8 +31,29 @@ private:
     
     const float ROT_THRUST_MAG { 6.0f };
     float rot_thrust_amount { 0.0f };
+};
+
+class Rocket_HardCodedOptimalFunctionApproximation : public Rocket
+{
+public:
+    Rocket_HardCodedOptimalFunctionApproximation();
+    void computeControls(ImVec2 mouse_pos) override;
+private:
+    Model model;
+};
+
+class Rocket_StatePredictorActionGenerator : public Rocket
+{
+public:
+    Rocket_StatePredictorActionGenerator();
+    void computeControls(ImVec2 mouse_pos) override;
+private:
+    float getStateScore(array state);
+    Model state_predictor;
+    Model action_generator;
     
-    Layer l1;
-    Layer l2;
-    Layer l3;
+    array prev_state;
+    array prev_action;
+    
+    std::vector<array> actions;
 };

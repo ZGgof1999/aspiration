@@ -1,6 +1,6 @@
 #include "Environment.h"
 
-Environment::Environment() { rocket = std::make_unique<Rocket>(); }
+Environment::Environment() { rocket = std::make_unique<Rocket_StatePredictorActionGenerator>(); }
 Environment::~Environment() { }
 
 void Environment::render()
@@ -31,7 +31,7 @@ void Environment::render()
     static bool reset;
     ImGui::Checkbox("Reset", &reset);
     if (reset)
-        rocket = std::make_unique<Rocket>();
+        rocket = std::make_unique<Rocket_StatePredictorActionGenerator>();
     reset = false;
     
     rocket->draw();
