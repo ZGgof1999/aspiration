@@ -1,6 +1,9 @@
 #include "grid.h"
 
-Grid::Grid() { }
+Grid::Grid() 
+{
+    dot = std::make_unique<OnlineDot>();
+}
 Grid::~Grid() { }
 
 ImVec2 Grid::getTopLeft(float x, float y, ImVec2 center) { return {x*gridSize - halfGrid + padding + center.x, y*gridSize - halfGrid + padding + center.y}; }
@@ -15,9 +18,12 @@ void Grid::render()
     ImGui::Begin("Controls");
     
     ImGui::InputInt("Batches", &numBatches);
-    ImGui::InputFloat("Learning Rate", &learningRate);
-    if (ImGui::Button("Train"))
-        dot.train(numBatches, learningRate);
+    ImGui::InputFloat("State Learning Rate", &stateLearningRate);
+    ImGui::InputFloat("Action Learning Rate", &actionLearningRate);
+    //if (ImGui::Button("Train"))
+        //dot.train(numBatches, learningRate);
+    if (ImGui::Button("Reset"))
+        dot = std::make_unique<OnlineDot>();
     
     ImVec2 size = ImGui::GetMainViewport()->Size;
     ImVec2 center(size.x * 0.5, size.y * 0.5);
@@ -31,7 +37,7 @@ void Grid::render()
     
     ImGui::End();
     
-    dot.act(targetX, targetY);
+    dot->act(targetX, targetY, stateLearningRate, actionLearningRate);
     
     // Paint
     ImDrawList* draw = ImGui::GetBackgroundDrawList();
@@ -43,6 +49,6 @@ void Grid::render()
                                 getBottomRight(x, y, center),
                                 color);
     draw->AddRectFilled(getTopLeft(targetX, targetY, center), getBottomRight(targetX, targetY, center), IM_COL32(65, 65, 65, 255));
-    draw->AddCircleFilled({dot.x * gridSize + center.x, dot.y * gridSize + center.y}, halfGrid - 2 * padding, IM_COL32(205, 25, 25, 255));
+    draw->AddCircleFilled({dot->x * gridSize + center.x, dot->y * gridSize + center.y}, halfGrid - 2 * padding, IM_COL32(205, 25, 25, 255));
     draw->AddCircle(io.MousePos, 10, IM_COL32_WHITE);
 }

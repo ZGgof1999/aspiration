@@ -16,7 +16,7 @@ private:
     ImVec2 getTopLeft(float x, float y, ImVec2 center);
     ImVec2 getBottomRight(float x, float y, ImVec2 center);
     
-    Dot dot;
+    std::unique_ptr<OnlineDot> dot;
     float targetX { 0 };
     float targetY { 0 };
     
@@ -25,5 +25,6 @@ private:
     float padding = 4;
 
     int numBatches = 10;
-    float learningRate = 0.02f;
+    float actionLearningRate = 0.02f;
+    float stateLearningRate = 0.02f;
 };

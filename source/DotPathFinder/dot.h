@@ -1,5 +1,4 @@
 #pragma once
-#include "mlx/mlx.h"
 #include <atomic>
 #include <iostream>
 #include "../nn/layer.h"
@@ -39,9 +38,28 @@ public:
     float x { 0 };
     float y { 0 };
 private:
-    Layer l1;
-    Layer l2;
-    Layer l3;
+    Model model;
     
     std::vector<TrainingData> trainingData;
+};
+
+class OnlineDot
+{
+public:
+    OnlineDot();
+    ~OnlineDot();
+
+    void act(float target_x, float target_y, float state_rate, float action_rate);
+    
+    float x { 0 };
+    float y { 0 };
+private:
+    float getStateScore(array state);
+    Model state_predictor;
+    Model action_generator;
+    
+    array prev_state;
+    array prev_action;
+    
+    std::vector<array> actions;
 };

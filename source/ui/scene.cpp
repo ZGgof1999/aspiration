@@ -5,5 +5,5 @@ Scene::~Scene() { }
 
 void Scene::render()
 {
-    environment.render();
+    grid.render();
 }
