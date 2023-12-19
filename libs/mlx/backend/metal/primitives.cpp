@@ -84,9 +84,9 @@ void binary_op(
     }
 
     // Launch up to 3D grid of threads
-    int dim0 = ndim > 0 ? shape[ndim - 1] : 1;
-    int dim1 = ndim > 1 ? shape[ndim - 2] : 1;
-    int rest = out.size() / (dim0 * dim1);
+    size_t dim0 = ndim > 0 ? shape[ndim - 1] : 1;
+    size_t dim1 = ndim > 1 ? shape[ndim - 2] : 1;
+    size_t rest = out.size() / (dim0 * dim1);
     NS::UInteger thread_group_size = kernel->maxTotalThreadsPerThreadgroup();
     if (thread_group_size != 1024) {
       throw std::runtime_error("[Metal::binary] Must use 1024 sized block");
@@ -450,6 +450,14 @@ void Minimum::eval_gpu(const std::vector<array>& inputs, array& out) {
   binary_op(inputs, out, "min");
 }
 
+void Floor::eval_gpu(const std::vector<array>& inputs, array& out) {
+  unary_op(inputs, out, "floor");
+}
+
+void Ceil::eval_gpu(const std::vector<array>& inputs, array& out) {
+  unary_op(inputs, out, "ceil");
+}
+
 void Multiply::eval_gpu(const std::vector<array>& inputs, array& out) {
   binary_op(inputs, out, "mul");
 }
@@ -552,6 +560,17 @@ void Reshape::eval_gpu(const std::vector<array>& inputs, array& out) {
     out.copy_shared_buffer(in, out.strides(), flags, in.data_size());
   } else {
     copy_gpu(in, out, CopyType::General);
+  }
+}
+
+void Round::eval_gpu(const std::vector<array>& inputs, array& out) {
+  assert(inputs.size() == 1);
+  const auto& in = inputs[0];
+  if (not is_integral(in.dtype())) {
+    unary_op(inputs, out, "round");
+  } else {
+    // No-op integer types
+    out.copy_shared_buffer(in);
   }
 }
 
